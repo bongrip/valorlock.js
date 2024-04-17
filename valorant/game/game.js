@@ -11,6 +11,10 @@ let autolockedIds = []
 @ autolock an agent with a randomly generated, realistic delay within requests
 */
 
+function encodeJSONRiotLike(data) {
+  return JSON.stringify(data, null, '\t').replace(/\n/gi, '\r\n')
+}
+
 async function autolock(pregameId, agent_id) {
     try {
         if (autolockedIds.includes(pregameId)) return;
@@ -30,7 +34,17 @@ async function autolock(pregameId, agent_id) {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${bearerToken}`,
-                    "X-Riot-Entitlements-JWT": entitlementJWT
+                    "X-Riot-Entitlements-JWT": entitlementJWT,
+                    "X-Riot-ClientPlatform": btoa(
+                        encodeJSONRiotLike({
+                            platformType: "PC",
+                            platformOS: "Windows",
+                            platformOSVersion: "10.0.19044.1.256.64bit",
+                            platformChipset: "Unknown"
+                        })
+                    ),
+                    "X-Riot-ClientVersion": "release-08.07-shipping-9-2444158",
+                    "User-Agent": "Shooter Game/22 Windows/10.0.19044.1.256.64bit"
                 }
             });
     
@@ -46,7 +60,17 @@ async function autolock(pregameId, agent_id) {
                         method: "POST",
                         headers: {
                             "Authorization": `Bearer ${bearerToken}`,
-                            "X-Riot-Entitlements-JWT": entitlementJWT
+                            "X-Riot-Entitlements-JWT": entitlementJWT,
+                            "X-Riot-ClientPlatform": btoa(
+                                encodeJSONRiotLike({
+                                    platformType: "PC",
+                                    platformOS: "Windows",
+                                    platformOSVersion: "10.0.19044.1.256.64bit",
+                                    platformChipset: "Unknown"
+                                })
+                            ),
+                            "X-Riot-ClientVersion": "release-08.07-shipping-9-2444158",
+                            "User-Agent": "Shooter Game/22 Windows/10.0.19044.1.256.64bit"
                         }
                     });
     
