@@ -17,4 +17,4 @@ To get the unique UUID you can visit VALORANT-API.com (specifically: https://val
 ```
 
 # References
-@nyrpqsqq35 [Valoreye](https://github.com/nyrpqsqq35/valoreye-archive)
+[@nyrpqsqq35](https://github.com/nyrpqsqq35) [Valoreye](https://github.com/nyrpqsqq35/valoreye-archive)
