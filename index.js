@@ -4,9 +4,6 @@ const readline = require('readline-sync');
 const agent_data = require('./agent_data.json');
 
 console.clear();
-console.log(`[${getFmt()}] WELCOME TO VALORLOCK.js B2 WRITTEN BY D6M_`);
-console.log(`[${getFmt()}] YOU ARE USING AN EARLY ACCESS/DEVELOPMENT BUILD`);
-console.log(`[${getFmt()}] DONT BE SURPRISED IF THERE IS BUGS`);
 
 let agent = readline.question(`[${getFmt()}] ENTER AGENT NAME: `).toLowerCase();
 if (!agent_data.hasOwnProperty(agent)) return console.log(`[${getFmt()}] INVALID AGENT, A LIST OF VALID AGENTS CAN BE FOUND IN AGENT_DATA.JSON`);
